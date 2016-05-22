@@ -1,0 +1,1730 @@
+#N canvas 0 22 1280 635 10;
+#X obj 1155 541 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X text 1153 523 Duration (Ms);
+#X text 1101 649 Velocity 0-127;
+#X obj 791 386 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 816 413 metro;
+#X obj 907 390 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 783 571 print;
+#X msg 822 390 stop;
+#X obj 769 521 tabread;
+#X msg 204 654 set Cmajor;
+#X obj 937 636 + 90;
+#X obj 1151 598 tabread;
+#X msg 1218 577 set Times;
+#X obj 1151 562 random 5;
+#X obj 749 448 send m;
+#X obj 1151 625 send t;
+#X obj 761 730 send Poly;
+#X obj 824 729 send Poly2;
+#X obj 746 408 send bang;
+#X obj 1213 540 receive bang;
+#X obj 629 852 receive bang;
+#X obj 471 465 receive bang;
+#X obj 930 611 random 37;
+#X obj 766 601 makenote;
+#X obj 646 875 table Times 5;
+#X msg 630 896 \; Times 0 500 1000 2000 1000 500;
+#X floatatom 785 659 5 0 0 0 - - -;
+#X floatatom 714 673 5 0 0 0 - - -;
+#N canvas 0 23 800 555 Bass 0;
+#X obj -390 472 tabread;
+#X obj -392 507 makenote;
+#X obj -455 426 receive m;
+#X obj -213 484 receive t;
+#X msg 204 55 17 15 2;
+#X obj 146 23 table TimesBass 5;
+#X obj -415 542 send PolyB1;
+#X obj -96 520 send PolyB2;
+#X obj 153 29 receive bang;
+#X floatatom -354 590 5 0 0 0 - - -;
+#X floatatom -436 590 5 0 0 0 - - -;
+#X obj -295 94 receive bang;
+#X obj -346 324 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -345 254 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -104 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -101 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -331 195 gate 2;
+#X obj -277 194 gate 2;
+#X obj 152 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 153 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -222 195 gate 2;
+#X floatatom -618 76 5 0 0 0 - - -;
+#X floatatom -568 214 5 0 0 0 - - -;
+#X obj -810 256 gate 2;
+#X obj -756 255 gate 2;
+#X obj -706 256 gate 2;
+#X text -571 150 Threshold for Dark to Light Less than 40 sends bang
+data to minor sets Greater than sends to major;
+#X msg -344 236 set CmajorBass;
+#X msg -345 308 set CminorBass;
+#X msg -102 235 set DmajorBass;
+#X msg 154 20 set EmajorBass;
+#X msg 153 73 set EminorBass;
+#X msg -102 307 set DminorBass;
+#X obj -582 428 float;
+#X obj -613 426 + 1;
+#X obj 218 73 drunk;
+#X obj -583 450 mod 29;
+#X obj -692 118 < 0.6;
+#X obj -441 123 > 0.6;
+#X obj 154 55 24 48 4;
+#X obj -533 448 gate 2;
+#X obj -534 473 random 29;
+#X obj -536 423 receive osr;
+#X obj -226 325 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -225 255 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 4 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 7 250 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 114 315 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 113 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -224 237 set DbmajorBass;
+#X msg -225 309 set DbminorBass;
+#X msg 6 229 set EbmajorBass;
+#X msg 6 301 set EbminorBass;
+#X msg 114 226 set BmajorBass;
+#X msg 115 299 set BminorBass;
+#X obj -178 193 gate 2;
+#X obj -124 192 gate 2;
+#X obj -69 193 gate 2;
+#X obj -650 258 gate 2;
+#X obj -602 260 gate 2;
+#X obj -555 257 gate 2;
+#X obj -339 476 receive velocity;
+#X obj 236 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 235 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 236 220 set BbmajorBass;
+#X msg 237 293 set BbminorBass;
+#X obj 351 315 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 342 239 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 343 219 set AmajorBass;
+#X msg 352 299 set AminorBass;
+#X obj 455 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 453 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 454 214 set AbmajorBass;
+#X msg 456 295 set AbminorBass;
+#X obj -24 191 gate 2;
+#X obj 35 193 gate 2;
+#X obj -362 120 gate 8;
+#X obj -494 253 gate 2;
+#X obj -432 241 gate 2;
+#X floatatom -191 543 5 0 0 0 - - -;
+#X floatatom -150 540 5 0 0 0 - - -;
+#X obj -203 518 moses 1;
+#X obj -676 32 receive light1;
+#X floatatom -356 41 5 0 0 0 - - -;
+#X floatatom -356 86 5 0 0 0 - - -;
+#X obj -379 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -286 -9 receive tempmain;
+#X obj -356 63 - 25;
+#X obj -713 53 gate 2;
+#X obj -747 11 receive scalecontrol;
+#X obj -338 13 gate 2;
+#N canvas 28 23 1165 690 pentatonicsetsBass 0;
+#X obj 80 152 receive bang;
+#X floatatom 6 106 5 0 0 0 - - -;
+#X floatatom 6 151 5 0 0 0 - - -;
+#X obj 114 369 gate 2;
+#X obj 207 365 gate 2;
+#X obj 269 354 gate 2;
+#X floatatom -252 150 5 0 0 0 - - -;
+#X floatatom -370 203 5 0 0 0 - - -;
+#X obj -416 385 gate 2;
+#X obj -316 385 gate 2;
+#X obj -261 386 gate 2;
+#X text 28 221 Temp decides to open gate no.;
+#X obj -17 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 21 237 Gate sends Bang to Sets;
+#X obj 323 351 gate 2;
+#X obj -364 383 gate 2;
+#X obj 380 355 gate 2;
+#X obj 458 352 gate 2;
+#X obj -24 244 gate 8;
+#X obj -178 390 gate 2;
+#X obj -122 390 gate 2;
+#X obj -77 394 gate 2;
+#X obj -22 390 gate 2;
+#X obj -188 192 send light;
+#X obj -228 193 > 0.6;
+#X obj -309 187 < 0.6;
+#X obj 6 128 - 25;
+#X obj -259 453 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 516 354 gate 2;
+#X obj 596 355 gate 2;
+#X obj -300 51 inlet;
+#X obj -169 37 inlet;
+#X obj 115 415 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -258 433 set ClydianBass;
+#X obj -192 487 outlet;
+#X obj 152 442 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 116 395 set AmajorBassP;
+#X msg 149 420 set BbmajorBassP;
+#X obj 264 422 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 265 402 set BmajorBassP;
+#X obj 296 458 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 297 438 set CmajorBassP;
+#X obj 381 415 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 382 395 set DbmajorBassP;
+#X obj 534 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 535 439 set DmajorBassP;
+#X obj 572 409 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 573 389 set EbmajorBassP;
+#X obj 701 406 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 702 386 set EmajorBassP;
+#X obj 130 32 receive bang;
+#X msg 38 54 0;
+#X obj 100 73 delay 100;
+#X obj -434 432 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -433 412 set AlydianBass;
+#X obj -370 462 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -369 442 set BblydianBass;
+#X obj -320 428 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -319 408 set BlydianBass;
+#X obj -179 432 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -179 412 set DblydianBass;
+#X obj -144 452 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -143 432 set DlydianBass;
+#X obj -72 434 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -71 414 set EblydianBass;
+#X obj 0 433 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 1 413 set ElydianBass;
+#X connect 0 0 18 1;
+#X connect 1 0 26 0;
+#X connect 2 0 18 0;
+#X connect 3 0 36 0;
+#X connect 4 0 37 0;
+#X connect 5 0 39 0;
+#X connect 6 0 23 0;
+#X connect 6 0 24 0;
+#X connect 6 0 25 0;
+#X connect 8 0 54 0;
+#X connect 9 0 58 0;
+#X connect 10 0 33 0;
+#X connect 12 0 1 0;
+#X connect 14 0 41 0;
+#X connect 15 0 56 0;
+#X connect 16 0 43 0;
+#X connect 17 0 45 0;
+#X connect 18 0 3 1;
+#X connect 18 0 8 1;
+#X connect 18 1 4 1;
+#X connect 18 1 15 1;
+#X connect 18 2 5 1;
+#X connect 18 2 9 1;
+#X connect 18 3 14 1;
+#X connect 18 3 10 1;
+#X connect 18 4 16 1;
+#X connect 18 4 19 1;
+#X connect 18 5 17 1;
+#X connect 18 5 20 1;
+#X connect 18 6 21 1;
+#X connect 18 6 28 1;
+#X connect 18 7 22 1;
+#X connect 18 7 29 1;
+#X connect 19 0 60 0;
+#X connect 20 0 62 0;
+#X connect 21 0 64 0;
+#X connect 22 0 66 0;
+#X connect 24 0 3 0;
+#X connect 24 0 4 0;
+#X connect 24 0 5 0;
+#X connect 24 0 14 0;
+#X connect 24 0 16 0;
+#X connect 24 0 17 0;
+#X connect 25 0 8 0;
+#X connect 25 0 9 0;
+#X connect 25 0 10 0;
+#X connect 25 0 7 0;
+#X connect 25 0 15 0;
+#X connect 25 0 19 0;
+#X connect 25 0 20 0;
+#X connect 25 0 21 0;
+#X connect 25 0 22 0;
+#X connect 26 0 2 0;
+#X connect 28 0 47 0;
+#X connect 29 0 49 0;
+#X connect 30 0 6 0;
+#X connect 31 0 1 0;
+#X connect 33 0 27 0;
+#X connect 33 0 34 0;
+#X connect 36 0 32 0;
+#X connect 36 0 34 0;
+#X connect 37 0 35 0;
+#X connect 37 0 34 0;
+#X connect 39 0 38 0;
+#X connect 39 0 34 0;
+#X connect 41 0 40 0;
+#X connect 41 0 34 0;
+#X connect 43 0 42 0;
+#X connect 43 0 34 0;
+#X connect 45 0 44 0;
+#X connect 45 0 34 0;
+#X connect 47 0 46 0;
+#X connect 47 0 34 0;
+#X connect 49 0 48 0;
+#X connect 49 0 34 0;
+#X connect 50 0 52 0;
+#X connect 51 0 2 0;
+#X connect 52 0 51 0;
+#X connect 54 0 53 0;
+#X connect 54 0 34 0;
+#X connect 56 0 55 0;
+#X connect 56 0 34 0;
+#X connect 58 0 57 0;
+#X connect 58 0 34 0;
+#X connect 60 0 59 0;
+#X connect 60 0 34 0;
+#X connect 62 0 61 0;
+#X connect 62 0 34 0;
+#X connect 64 0 63 0;
+#X connect 64 0 34 0;
+#X connect 66 0 65 0;
+#X connect 66 0 34 0;
+#X restore -506 66 pd pentatonicsetsBass;
+#N canvas 0 22 1257 638 bass 0;
+#X obj 810 -564 receive bang;
+#X obj 64 -114 table CmajorBass 29;
+#X obj 451 -117 table CminorBass 29;
+#X msg 61 -86 \; CmajorBass 0 24 26 28 29 31 33 35 36 38 40 41 43 45
+47 48 50 52 53 55 57 59 60 62 64 65 67 69 71 72;
+#X msg 452 -87 \; CminorBass 0 24 26 27 29 31 32 34 36 38 39 41 43
+44 46 48 50 51 53 55 56 58 60 62 63 65 67 68 70 72;
+#X obj 62 -32 table BmajorBass 29;
+#X obj 60 60 table BbmajorBass 29;
+#X obj 453 -26 table BminorBass 29;
+#X obj 458 60 table BbminorBass 29;
+#X msg 454 4 \; CminorBass 0 23 25 26 28 30 31 33 35 37 38 40 42 43
+45 47 49 50 52 54 55 57 59 61 62 64 66 67 69 71;
+#X obj 65 -211 table DbmajorBass 29;
+#X obj 452 -214 table DbminorBass 29;
+#X obj 64 -302 table DmajorBass 29;
+#X obj 451 -299 table DminorBass 29;
+#X msg 61 -274 \; DmajorBass 0 26 28 30 31 33 35 37 38 40 42 43 45
+47 49 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74;
+#X msg 62 -183 \; DbmajorBass 0 25 27 29 30 32 34 36 37 39 41 42 44
+46 48 49 51 53 54 56 58 60 61 63 65 66 68 70 72 73;
+#X msg 453 -184 \; DbminorBass 0 25 27 28 30 32 33 35 37 39 40 42 44
+45 47 49 51 52 54 56 57 59 61 63 64 66 68 69 71 73;
+#X msg 452 -269 \; DminorBass 0 26 28 29 31 33 34 36 38 40 41 43 45
+46 48 50 52 53 55 57 58 60 62 64 65 67 69 70 72 74;
+#X obj 447 -410 table EbminorBass 29;
+#X obj 65 -388 table EbmajorBass 29;
+#X msg 62 -360 \; EbmajorBass 0 27 29 31 32 34 36 38 39 41 43 44 46
+48 50 51 53 55 56 58 60 62 63 65 67 68 70 72 74 75;
+#X msg 448 -380 \; EbminorBass 0 27 29 30 32 34 35 37 39 41 42 44 46
+47 49 51 53 54 56 58 59 61 63 65 66 68 70 71 73 75;
+#X obj 446 -501 table EminorBass 29;
+#X obj 64 -478 table EmajorBass 29;
+#X msg 52 -454 \; EmajorBass 0 28 30 32 33 35 37 39 40 42 44 45 47
+49 51 52 54 56 57 59 61 63 64 66 68 69 71 73 75 76;
+#X msg 444 -471 \; EminorBass 0 28 30 31 33 35 36 38 40 42 43 45 47
+48 50 52 54 55 57 59 60 62 64 66 67 69 71 72 74 76;
+#X msg 59 -4 \; BmajorBass 0 23 25 27 28 30 32 34 35 37 39 40 42 44
+46 47 49 51 52 54 56 58 59 61 63 64 66 68 70 71;
+#X msg 58 88 \; BbmajorBass 0 22 24 26 27 29 31 33 34 36 38 39 41 43
+45 46 48 50 51 53 55 57 58 60 62 63 65 67 69 70;
+#X msg 459 90 \; BbminorBass 0 22 24 25 27 29 30 32 34 36 37 39 41
+42 44 46 48 49 51 53 54 56 58 60 61 63 65 66 68 70;
+#X obj 59 155 table AmajorBass 29;
+#X obj 457 155 table AminorBass 29;
+#X msg 57 183 \; BbmajorBass 0 21 23 25 26 28 30 32 33 35 37 38 40
+42 44 45 47 49 50 52 54 56 57 59 61 62 64 66 68 69;
+#X msg 458 185 \; BbminorBass 0 21 23 24 26 28 29 31 33 35 36 38 40
+41 43 45 47 48 50 52 53 55 57 59 60 62 64 65 67 69;
+#X obj 865 -112 table CmajorBassP 29;
+#X obj 873 -11 table BmajorBassP 29;
+#X msg 1299 22 \; ClydianBass 0 24 26 27 29 31 32 37 38 40 41 43 45
+48 49 24 26 27 29 31 32 37 38 40 41 43 45 48 49 51;
+#X obj 1299 -8 table ClydianBass 29;
+#X msg 876 19 \; BmajorBassP 0 23 25 26 28 30 31 33 35 37 38 40 42
+43 45 47 25 26 28 30 31 33 35 37 38 40 42 43 45;
+#X msg 867 -84 \; CmajorBassP 0 24 26 27 29 31 32 34 36 38 39 41 43
+44 46 48 26 27 29 31 32 34 36 38 39 41 43 44 46;
+#X obj 871 76 table BbmajorBassP 29;
+#X msg 874 106 \; BbmajorBassP 0 22 24 25 27 29 30 32 34 36 37 39 41
+42 44 46 24 25 27 29 30 32 34 36 37 39 41 42 44;
+#X obj 870 161 table AmajorBassP 29;
+#X msg 873 191 \; AmajorBassP 0 21 23 24 26 28 29 31 33 35 36 38 40
+41 43 45 23 24 26 28 29 31 33 35 36 38 40 41 43;
+#X obj 862 -214 table DbmajorBassP 29;
+#X msg 864 -186 \; DbmajorBassP 0 25 27 28 30 32 33 35 37 39 40 42
+44 45 47 49 27 28 30 32 33 35 37 39 40 42 44 45 47;
+#X obj 858 -308 table DmajorBassP 29;
+#X msg 860 -280 \; DmajorBassP 0 26 28 29 31 33 34 36 38 40 41 43 45
+46 48 50 28 29 31 33 34 36 38 40 41 43 45 46 48;
+#X obj 854 -414 table EbmajorBassP 29;
+#X msg 855 -386 \; EbmajorBassP 0 27 29 30 32 34 35 37 39 41 42 44
+46 47 49 51 29 30 32 34 35 37 39 41 42 44 46 47 49;
+#X obj 847 -514 table EmajorBassP 29;
+#X msg 848 -486 \; EmajorBassP 0 28 30 31 33 35 36 38 40 42 43 45 47
+48 50 52 30 31 33 35 36 38 40 42 43 45 47 48 50;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 26 0;
+#X connect 0 0 27 0;
+#X connect 0 0 9 0;
+#X connect 0 0 28 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 14 0;
+#X connect 0 0 17 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 0 0 31 0;
+#X connect 0 0 32 0;
+#X connect 0 0 38 0;
+#X connect 0 0 35 0;
+#X connect 0 0 50 0;
+#X connect 0 0 48 0;
+#X connect 0 0 46 0;
+#X connect 0 0 44 0;
+#X connect 0 0 37 0;
+#X connect 0 0 40 0;
+#X connect 0 0 42 0;
+#X restore -50 393 pd bass scales;
+#X obj -39 28 receive bang;
+#X msg -131 50 0;
+#X obj -69 69 delay 100;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 0 10 0;
+#X connect 1 1 81 0;
+#X connect 2 0 40 1;
+#X connect 3 0 1 2;
+#X connect 8 0 39 0;
+#X connect 11 0 76 1;
+#X connect 16 0 27 0;
+#X connect 17 0 49 0;
+#X connect 20 0 29 0;
+#X connect 21 0 37 0;
+#X connect 21 0 38 0;
+#X connect 23 0 28 0;
+#X connect 24 0 50 0;
+#X connect 25 0 32 0;
+#X connect 27 0 13 0;
+#X connect 27 0 0 0;
+#X connect 28 0 12 0;
+#X connect 28 0 0 0;
+#X connect 29 0 15 0;
+#X connect 29 0 0 0;
+#X connect 30 0 19 0;
+#X connect 31 0 18 0;
+#X connect 32 0 14 0;
+#X connect 32 0 0 0;
+#X connect 33 0 34 0;
+#X connect 33 0 36 0;
+#X connect 34 0 33 1;
+#X connect 36 0 0 0;
+#X connect 37 0 23 0;
+#X connect 37 0 24 0;
+#X connect 37 0 25 0;
+#X connect 37 0 22 0;
+#X connect 37 0 58 0;
+#X connect 37 0 59 0;
+#X connect 37 0 60 0;
+#X connect 37 0 77 0;
+#X connect 37 0 78 0;
+#X connect 38 0 16 0;
+#X connect 38 0 17 0;
+#X connect 38 0 20 0;
+#X connect 38 0 55 0;
+#X connect 38 0 56 0;
+#X connect 38 0 57 0;
+#X connect 40 0 33 0;
+#X connect 40 1 41 0;
+#X connect 41 0 0 0;
+#X connect 42 0 40 0;
+#X connect 49 0 44 0;
+#X connect 49 0 0 0;
+#X connect 50 0 43 0;
+#X connect 50 0 0 0;
+#X connect 51 0 46 0;
+#X connect 51 0 0 0;
+#X connect 52 0 45 0;
+#X connect 52 0 0 0;
+#X connect 53 0 48 0;
+#X connect 53 0 0 0;
+#X connect 54 0 47 0;
+#X connect 54 0 0 0;
+#X connect 55 0 51 0;
+#X connect 56 0 53 0;
+#X connect 57 0 64 0;
+#X connect 58 0 52 0;
+#X connect 59 0 54 0;
+#X connect 60 0 65 0;
+#X connect 61 0 1 1;
+#X connect 64 0 63 0;
+#X connect 65 0 62 0;
+#X connect 68 0 67 0;
+#X connect 69 0 66 0;
+#X connect 72 0 71 0;
+#X connect 73 0 70 0;
+#X connect 74 0 68 0;
+#X connect 75 0 72 0;
+#X connect 76 0 16 1;
+#X connect 76 0 23 1;
+#X connect 76 1 17 1;
+#X connect 76 1 24 1;
+#X connect 76 2 20 1;
+#X connect 76 2 25 1;
+#X connect 76 3 55 1;
+#X connect 76 3 58 1;
+#X connect 76 4 56 1;
+#X connect 76 4 59 1;
+#X connect 76 5 57 1;
+#X connect 76 5 60 1;
+#X connect 76 6 74 1;
+#X connect 76 6 77 1;
+#X connect 76 7 75 1;
+#X connect 76 7 78 1;
+#X connect 77 0 69 0;
+#X connect 78 0 73 0;
+#X connect 81 0 79 0;
+#X connect 81 1 80 0;
+#X connect 81 1 7 0;
+#X connect 82 0 88 1;
+#X connect 83 0 87 0;
+#X connect 84 0 76 0;
+#X connect 85 0 83 0;
+#X connect 86 0 90 1;
+#X connect 87 0 84 0;
+#X connect 88 0 21 0;
+#X connect 88 1 91 0;
+#X connect 89 0 88 0;
+#X connect 89 0 90 0;
+#X connect 90 0 83 0;
+#X connect 90 1 91 1;
+#X connect 91 0 0 0;
+#X connect 93 0 95 0;
+#X connect 94 0 84 0;
+#X connect 95 0 94 0;
+#X restore 886 121 pd Bass;
+#X obj 819 366 receive stop;
+#X obj 721 363 receive start;
+#X msg -24 826 set Cminor;
+#X floatatom 397 419 5 0 0 0 - - -;
+#X floatatom 397 464 5 0 0 0 - - -;
+#X obj -25 842 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 203 672 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 167 843 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 168 822 set Dminor;
+#X obj 364 670 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 362 651 set Dmajor;
+#X obj 215 611 gate 2;
+#X obj 271 611 gate 2;
+#X obj 254 836 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 444 670 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 316 615 gate 2;
+#X floatatom 139 463 5 0 0 0 - - -;
+#X floatatom -31 515 5 0 0 0 - - -;
+#X text 89 407 LIGHT sensor READING;
+#X obj -25 698 gate 2;
+#X obj 75 698 gate 2;
+#X obj 130 699 gate 2;
+#X text 419 534 Temp decides to open gate no.;
+#X obj 374 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 412 550 Gate sends Bang to Sets;
+#X text -32 364 Threshold for Dark to Light Less than 40 sends bang
+data to minor sets Greater than sends to major;
+#N canvas 1280 23 800 555 scales 0;
+#X obj -2948 -1196 receive bang;
+#X msg -3699 -937 \; Cmajor 0 48 50 52 53 55 57 59 60 62 64 65 67 69
+71 72 74 76 77 79 81 83 84 86 88 89 91 93 95 96;
+#X msg -3303 -935 \; Cminor 0 48 50 51 53 55 56 58 60 62 63 65 67 68
+70 72 74 75 77 79 80 82 84 86 87 89 91 92 94 96;
+#X msg -3694 -1096 \; Dmajor 0 50 52 54 55 57 59 61 62 64 66 67 69
+71 73 74 76 78 79 81 83 85 86 88 90 91 93 95 97 98;
+#X msg -3310 -1102 \; Dminor 0 50 52 53 55 57 58 60 62 64 65 67 69
+70 72 74 76 77 79 81 82 84 86 88 89 91 93 94 96 98;
+#X msg -3314 -1177 \; Ebminor 0 51 53 54 56 58 59 61 63 65 66 68 70
+71 73 75 77 78 80 82 83 85 87 89 90 92 94 95 97 99;
+#X msg -3693 -1175 \; Ebmajor 0 51 53 55 56 58 60 62 63 65 67 68 70
+72 74 75 77 79 80 82 84 86 87 89 91 92 94 96 98 99;
+#X msg -3694 -1018 \; Dbmajor 0 49 51 53 54 56 58 60 61 63 65 66 68
+70 72 73 75 77 78 80 82 84 85 87 89 90 92 94 96 97;
+#X msg -3308 -1016 \; Dbminor 0 49 51 52 54 56 57 59 61 63 64 66 68
+69 71 73 75 76 78 80 81 83 85 87 88 90 92 93 95 97;
+#X obj -3678 -879 table Bmajor 27;
+#X obj -3303 -873 table Bminor 27;
+#X msg -3697 -856 \; Bmajor 0 47 49 51 52 54 56 58 59 61 63 64 66 68
+70 71 73 75 76 78 80 82 83 85 87 88 90 92 94 95;
+#X msg -3304 -847 \; Bminor 0 47 49 50 52 54 55 57 59 61 62 64 66 67
+69 71 73 74 76 78 79 81 83 85 86 88 90 91 93 95;
+#X obj -3702 -807 table Bbmajor 27;
+#X msg -3705 -784 \; Bmajor 0 46 48 50 51 53 55 57 58 60 62 63 65 67
+69 70 72 74 75 77 69 81 82 84 86 87 89 91 93 94;
+#X msg -3292 -761 \; Bminor 0 46 48 49 51 53 54 56 58 60 61 63 65 66
+68 70 72 73 75 77 78 80 82 84 85 87 89 90 92 94;
+#X msg -3714 -701 \; Amajor 0 45 47 49 50 52 54 56 57 59 61 62 64 66
+68 69 71 73 74 76 68 80 81 83 85 86 88 90 92 93;
+#X msg -3300 -681 \; Aminor 0 45 47 48 50 52 53 55 57 59 60 62 64 65
+67 69 71 72 74 76 77 79 81 83 84 86 88 89 91 93;
+#X obj -3680 -960 table Cmajor 29;
+#X obj -3307 -1040 table Dbminor 29;
+#X obj -3312 -1198 table Ebminor 29;
+#X obj -3674 -1198 table Ebmajor 29;
+#X obj -3308 -1123 table Dminor 29;
+#X obj -3675 -1119 table Dmajor 29;
+#X obj -3675 -1041 table Dbmajor 29;
+#X obj -3301 -956 table Cminor 29;
+#X obj -3291 -787 table Bbminor 29;
+#X obj -3711 -724 table Amajor 29;
+#X obj -3299 -707 table Aminor 29;
+#X msg -3688 -1272 \; Emajor 0 52 54 56 57 59 61 63 64 66 68 69 71
+73 75 76 78 80 81 83 85 87 88 90 92 93 95 97 99 100;
+#X obj -3669 -1295 table Emajor 29;
+#X obj -3304 -1292 table Eminor 29;
+#X msg -3306 -1271 \; Eminor 0 52 54 55 57 59 60 62 64 66 67 69 71
+72 74 76 78 79 81 83 84 86 88 90 91 93 95 96 98 100;
+#X obj -2870 -920 table CmajorP 29;
+#X msg -2872 -887 \; CmajorP 0 48 50 51 53 55 56 58 60 62 63 65 67
+68 70 72 50 51 53 55 56 58 60 62 63 65 67 68 70;
+#X obj -2870 -829 table BmajorP 29;
+#X obj -2872 -714 table BbmajorP 29;
+#X obj -2872 -1015 table DbmajorP 29;
+#X obj -2873 -1106 table DmajorP 29;
+#X msg -2875 -1080 \; DmajorP 0 50 52 53 55 57 58 60 63 64 65 67 69
+70 72 74 52 53 55 57 58 60 63 64 65 67 69 70 72;
+#X msg -2872 -991 \; DbmajorP 0 49 51 52 54 56 57 59 61 63 64 66 68
+69 71 73 51 52 54 56 57 59 61 63 64 66 68 69 71;
+#X obj -2874 -1206 table EbmajorP 29;
+#X msg -2876 -1174 \; EbmajorP 0 51 53 54 56 58 59 61 64 65 66 68 70
+71 73 75 53 54 56 58 59 61 64 65 66 68 70 71 73;
+#X msg -2882 -1278 \; EmajorP 0 52 54 55 57 59 60 62 65 66 67 69 71
+72 74 76 54 55 57 59 60 62 65 66 67 69 71 72 74;
+#X obj -2885 -1304 table EmajorP 29;
+#X obj -2881 -626 table AmajorP 29;
+#X msg -2877 -598 \; AmajorP 0 45 47 48 50 52 53 55 57 59 60 62 64
+65 67 69 47 48 50 52 53 55 57 59 60 62 64 65 67;
+#X msg -2871 -691 \; BbmajorP 0 46 48 49 51 53 54 56 58 60 61 63 65
+66 68 70 48 49 51 53 54 56 58 60 61 63 65 66 68;
+#X msg -2870 -806 \; BmajorP 0 47 49 50 52 54 55 57 59 61 62 64 66
+67 69 71 49 50 52 54 55 57 59 61 62 64 66 67 69;
+#X obj -2464 -873 table Clydian 29;
+#X msg -2465 -845 \; Clydian 0 48 49 52 53 55 56 58 60 61 65 66 48
+49 52 53 55 56 58 60 61 65 66 49 52 53 55 56 58;
+#X msg -2462 -954 \; Dblydian 0 49 50 51 54 56 57 59 61 62 66 67 49
+50 53 54 56 57 59 61 62 66 67 50 53 54 56 57 59;
+#X msg -2469 -1023 \; Dlydian 0 50 51 52 55 57 58 60 62 63 67 68 50
+51 54 55 57 58 60 62 63 67 68 51 54 55 57 58 60;
+#X msg -2460 -1091 \; Eblydian 0 51 52 53 56 58 59 61 63 64 68 69 51
+52 55 56 58 59 61 63 64 68 69 52 55 56 58 59 61;
+#X msg -2459 -1189 \; Elydian 0 52 53 54 57 59 60 62 64 65 69 70 52
+53 54 57 59 60 62 64 65 69 70 53 54 57 59 60 62;
+#X msg -2462 -760 \; Blydian 0 47 48 51 52 54 55 57 59 60 64 65 47
+48 51 52 54 55 57 59 60 64 65 48 51 52 54 55 57;
+#X msg -2467 -683 \; Bblydian 0 46 47 50 51 53 54 56 58 59 63 64 46
+47 50 51 53 54 56 58 59 63 64 47 50 51 53 54 56;
+#X obj -2454 -1214 table Elydian 29;
+#X obj -2456 -1121 table Eblydian 29;
+#X obj -2469 -1044 table Dlydian 29;
+#X obj -2465 -977 table Dblydian 29;
+#X obj -2472 -791 table Blydian 29;
+#X obj -2466 -710 table Bblydian 29;
+#X obj -2459 -622 table Alydian 29;
+#X msg -2459 -597 \; Alydian 0 45 46 49 50 52 53 55 57 58 62 63 45
+46 49 50 52 53 55 57 58 62 63 46 49 50 52 53 55;
+#X connect 0 0 2 0;
+#X connect 0 0 1 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 4 0;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 14 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 17 0;
+#X connect 0 0 29 0;
+#X connect 0 0 32 0;
+#X connect 0 0 43 0;
+#X connect 0 0 42 0;
+#X connect 0 0 39 0;
+#X connect 0 0 40 0;
+#X connect 0 0 34 0;
+#X connect 0 0 48 0;
+#X connect 0 0 46 0;
+#X connect 0 0 47 0;
+#X connect 0 0 54 0;
+#X connect 0 0 53 0;
+#X connect 0 0 52 0;
+#X connect 0 0 51 0;
+#X connect 0 0 50 0;
+#X connect 0 0 55 0;
+#X connect 0 0 56 0;
+#X connect 0 0 64 0;
+#X restore 885 96 pd scales;
+#X msg 445 650 set Ebmajor;
+#X msg 255 820 set Ebminor;
+#X obj 53 848 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 273 675 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 276 652 set Dbmajor;
+#X msg 54 827 set Dbminor;
+#X obj 371 611 gate 2;
+#X obj 27 696 gate 2;
+#X floatatom 907 368 5 0 0 0 - - -;
+#X obj 908 343 receive tempo;
+#X obj 214 730 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 375 728 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 455 728 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 284 733 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 215 712 set Bmajor;
+#X msg 287 710 set Bbmajor;
+#X msg 373 709 set Amajor;
+#X msg 456 708 set Abmajor;
+#X obj 423 609 gate 2;
+#X obj 479 609 gate 2;
+#X obj 524 613 gate 2;
+#X obj 579 609 gate 2;
+#X obj 367 557 gate 8;
+#X obj -18 745 gate 2;
+#X obj 38 745 gate 2;
+#X obj 83 749 gate 2;
+#X obj 138 745 gate 2;
+#X obj -25 898 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 134 899 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 216 896 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 45 901 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg -24 880 set Bminor;
+#X msg 48 878 set Bbminor;
+#X msg 134 877 set Aminor;
+#X msg 217 876 set Abminor;
+#X obj 203 505 send light;
+#X obj 771 478 float;
+#X obj 807 477 + 1;
+#X obj 1169 451 gate 2;
+#X obj 439 41 hradio 50 1 0 3 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 629 792 receive lightard;
+#X obj 629 820 send light;
+#X obj 163 506 > 0.6;
+#X obj 82 500 < 0.6;
+#X obj 769 496 mod 29;
+#X obj 833 498 random 29;
+#X obj 441 94 send osr;
+#X floatatom 1103 689 5 0 0 0 - - -;
+#X obj 253 192 hradio 50 1 0 3 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 935 568 gate 2;
+#X obj 970 663 send velocity;
+#X text 284 161 VELOCITY CONTROL;
+#X text 457 5 SCALE CONTROL;
+#X text 272 176 Static Light Random;
+#X floatatom 826 656 5 0 0 0 - - -;
+#X obj 773 634 moses 1;
+#X obj 765 549 change;
+#X obj 279 379 receive light1;
+#N canvas 1359 23 586 573 raininput 0;
+#X obj 20 36 receive rain1;
+#X obj 115 38 receive rain2;
+#X obj 209 39 receive rain3;
+#X obj 298 38 receive rain4;
+#X obj 386 38 receive rain5;
+#X floatatom 21 61 5 0 0 0 - - -;
+#X floatatom 115 63 5 0 0 0 - - -;
+#X floatatom 387 66 5 0 0 0 - - -;
+#X floatatom 298 65 5 0 0 0 - - -;
+#X floatatom 209 65 5 0 0 0 - - -;
+#X obj 477 40 receive light1;
+#X floatatom 448 81 5 0 0 0 - - -;
+#X floatatom 60 193 5 0 0 0 - - -;
+#X floatatom 73 125 5 0 0 0 - - -;
+#X obj 64 153 <;
+#X obj 77 99 - 0.1;
+#X floatatom 147 118 5 0 0 0 - - -;
+#X obj 144 147 <;
+#X obj 140 96 - 0.1;
+#X floatatom 224 121 5 0 0 0 - - -;
+#X obj 216 152 <;
+#X obj 220 94 - 0.1;
+#X floatatom 307 123 5 0 0 0 - - -;
+#X obj 299 154 <;
+#X obj 306 97 - 0.1;
+#X floatatom 449 132 5 0 0 0 - - -;
+#X obj 364 163 <;
+#X floatatom 369 199 5 0 0 0 - - -;
+#X floatatom 292 200 5 0 0 0 - - -;
+#X floatatom 199 197 5 0 0 0 - - -;
+#X floatatom 126 196 5 0 0 0 - - -;
+#X obj 49 334 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 49 223 select 1;
+#X obj 122 338 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 122 227 select 1;
+#X obj 180 340 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 185 232 select 1;
+#X obj 251 341 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 278 233 select 1;
+#X obj 310 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 362 238 select 1;
+#X msg 47 362 1;
+#X msg 101 363 2;
+#X msg 162 375 3;
+#X msg 219 376 4;
+#X msg 289 379 5;
+#X obj 150 424 send rainmain;
+#X obj 449 107 - 0.15;
+#X obj 330 308 onebang;
+#X obj 194 259 receive bang;
+#X obj 266 301 onebang;
+#X obj 191 292 onebang;
+#X obj 126 290 onebang;
+#X obj 59 288 onebang;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 9 0;
+#X connect 3 0 8 0;
+#X connect 4 0 7 0;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 6 0 17 0;
+#X connect 7 0 24 0;
+#X connect 7 0 26 0;
+#X connect 8 0 21 0;
+#X connect 8 0 23 0;
+#X connect 9 0 18 0;
+#X connect 9 0 20 0;
+#X connect 10 0 11 0;
+#X connect 11 0 47 0;
+#X connect 12 0 32 0;
+#X connect 13 0 14 1;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 1;
+#X connect 17 0 30 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 1;
+#X connect 20 0 29 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 1;
+#X connect 23 0 28 0;
+#X connect 24 0 22 0;
+#X connect 25 0 26 1;
+#X connect 26 0 27 0;
+#X connect 27 0 40 0;
+#X connect 28 0 38 0;
+#X connect 29 0 36 0;
+#X connect 30 0 34 0;
+#X connect 31 0 41 0;
+#X connect 32 0 31 0;
+#X connect 33 0 42 0;
+#X connect 34 0 33 0;
+#X connect 35 0 43 0;
+#X connect 36 0 35 0;
+#X connect 37 0 44 0;
+#X connect 38 0 37 0;
+#X connect 39 0 45 0;
+#X connect 40 0 48 0;
+#X connect 41 0 46 0;
+#X connect 42 0 46 0;
+#X connect 43 0 46 0;
+#X connect 44 0 46 0;
+#X connect 45 0 46 0;
+#X connect 47 0 25 0;
+#X connect 48 0 39 0;
+#X connect 49 0 48 1;
+#X connect 49 0 50 1;
+#X connect 49 0 51 1;
+#X connect 49 0 52 1;
+#X connect 49 0 53 1;
+#X connect 50 0 37 0;
+#X connect 51 0 35 0;
+#X connect 52 0 33 0;
+#X connect 53 0 31 0;
+#X restore 687 94 pd raininput;
+#N canvas 1378 23 530 518 tempinput 0;
+#X text 296 -212 temp calculations;
+#X obj 133 -277 receive temp1;
+#X floatatom 135 -131 5 0 0 0 - - -;
+#X obj 133 -238 expr ($f1*624.52)-4.524;
+#X floatatom 133 -205 5 0 0 0 - - -;
+#X obj 134 -157 - 32;
+#X obj 139 -101 / 1.8;
+#X floatatom 138 -70 5 0 0 0 - - -;
+#X obj 137 -35 send tempmain;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X restore 688 115 pd tempinput;
+#X obj 630 765 drunk;
+#X obj 629 742 24 48 4;
+#N canvas 0 23 1280 690 guitar 0;
+#X obj 77 -1 clip~ -0.5 0.5;
+#X obj 107 -60 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 104 -42 5 0 0 0 - - -;
+#X obj 83 327 *~ 0.6;
+#X obj 64 348 delwrite~ delayone 1000;
+#X obj 65 368 delread~ delayone 500;
+#X obj 79 302 / 127;
+#X text 140 -77 Feedback;
+#X obj 92 280 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 425 303 freeverb~;
+#X msg 485 67 roomsize \$1;
+#X msg 505 100 damping \$1;
+#X msg 536 136 wet \$1;
+#X msg 541 171 dry \$1;
+#X obj 589 152 expr 1-$f1;
+#X floatatom 659 45 5 0 0 0 - - -;
+#X msg 543 224 freeze \$1;
+#X msg 543 279 bypass \$1;
+#X obj 543 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 541 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 651 -3 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 655 21 / 127;
+#X floatatom 692 136 5 0 0 0 - - -;
+#X obj 686 86 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 690 107 / 127;
+#X floatatom 705 251 5 0 0 0 - - -;
+#X obj 711 183 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 703 222 / 127;
+#X obj -69 28 adc~;
+#X obj 246 183 compressor~;
+#X obj 291 159 / 100;
+#X obj 296 63 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 314 103 5 0 0 0 - - -;
+#X obj 75 -21 *~ 40;
+#X obj 456 386 mtof;
+#X obj 469 362 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 394 451 dac~;
+#X obj 436 449 tabwrite~ hip;
+#X obj 543 418 metro 100;
+#X obj 544 389 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 403 403 lop~;
+#X text 137 -61 Overdrive;
+#X text 590 101 Reverb;
+#X text 131 278 Delay;
+#X obj 762 18 receive bang;
+#X msg 749 40 0.5;
+#X floatatom 339 177 5 0 0 0 - - -;
+#X text 334 62 compressor;
+#X text 620 346 add a filter on guitar changed by rain hits;
+#X obj 267 13 receive temp1;
+#X obj 87 -90 * 300;
+#X obj 81 -122 receive light1;
+#X obj 341 156 * 100;
+#X obj 118 156 receive rainmain;
+#X text 126 204 / 5 because the rain is incriments of 5;
+#X obj 490 329 receive guitarvolume;
+#X obj 47 120 receive guitarcontrol;
+#X obj 84 245 gate 2;
+#X obj 106 195 / 5;
+#X obj 269 39 * 300;
+#X connect 0 0 29 0;
+#X connect 1 0 2 0;
+#X connect 2 0 33 1;
+#X connect 3 0 4 0;
+#X connect 5 0 3 0;
+#X connect 5 0 40 0;
+#X connect 6 0 3 1;
+#X connect 8 0 6 0;
+#X connect 9 0 40 0;
+#X connect 9 1 40 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 13 0;
+#X connect 15 0 10 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X connect 20 0 21 0;
+#X connect 21 0 15 0;
+#X connect 22 0 11 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X connect 25 0 14 0;
+#X connect 25 0 12 0;
+#X connect 26 0 27 0;
+#X connect 27 0 25 0;
+#X connect 28 0 4 0;
+#X connect 28 1 4 0;
+#X connect 28 1 33 0;
+#X connect 29 0 40 0;
+#X connect 29 0 9 0;
+#X connect 30 0 29 1;
+#X connect 31 0 30 0;
+#X connect 31 0 32 0;
+#X connect 33 0 0 0;
+#X connect 34 0 40 1;
+#X connect 35 0 34 0;
+#X connect 38 0 37 0;
+#X connect 39 0 38 0;
+#X connect 40 0 36 0;
+#X connect 40 0 36 1;
+#X connect 40 0 37 0;
+#X connect 44 0 45 0;
+#X connect 45 0 15 0;
+#X connect 45 0 22 0;
+#X connect 49 0 59 0;
+#X connect 50 0 2 0;
+#X connect 51 0 50 0;
+#X connect 52 0 46 0;
+#X connect 53 0 58 0;
+#X connect 55 0 34 0;
+#X connect 56 0 57 0;
+#X connect 57 0 3 1;
+#X connect 57 1 25 0;
+#X connect 58 0 57 1;
+#X connect 59 0 30 0;
+#X restore 785 97 pd guitar;
+#N canvas 0 23 1252 690 oscilator 1;
+#X obj 638 614 dac~;
+#X obj 122 178 notein;
+#X obj 128 324 mtof;
+#X obj 213 354 / 127;
+#X obj 123 208 poly 1 1;
+#X obj 122 238 pack 0 0 0;
+#X obj 123 268 route 1;
+#X obj 123 294 unpack 0 0;
+#X obj 752 502 freeverb~;
+#X msg 724 151 roomsize \$1;
+#X msg 754 187 damping \$1;
+#X msg 794 260 wet \$1;
+#X msg 799 295 dry \$1;
+#X obj 862 262 expr 1-$f1;
+#X floatatom 729 116 5 0 0 0 - - -;
+#X msg 801 348 freeze \$1;
+#X msg 813 403 bypass \$1;
+#X obj 814 325 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 828 381 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 723 61 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 727 82 / 127;
+#X floatatom 885 145 5 0 0 0 - - -;
+#X obj 889 87 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 883 116 / 127;
+#X floatatom 892 239 5 0 0 0 - - -;
+#X obj 886 189 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 890 210 / 127;
+#X obj 135 124 receive Poly;
+#X obj 240 170 receive Poly2;
+#X text 785 77 room;
+#X text 932 86 damping;
+#X floatatom 194 220 5 0 0 0 - - -;
+#X floatatom 262 212 5 0 0 0 - - -;
+#X text 943 203 dry/wet;
+#X obj 1150 165 notein;
+#X obj 1156 311 mtof;
+#X obj 1151 195 poly 1 1;
+#X obj 1150 225 pack 0 0 0;
+#X obj 1151 255 route 1;
+#X obj 1151 281 unpack 0 0;
+#X obj 1384 165 makenote 80 500;
+#X msg 1362 125 75;
+#X text 1345 93 test note;
+#X floatatom 1154 122 5 0 0 0 - - -;
+#X floatatom 1175 144 5 0 0 0 - - -;
+#X obj 1249 81 receive PolyB2;
+#X obj 1141 98 receive PolyB1;
+#X text 516 592 volume tenor;
+#X obj 498 563 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 458 607 *~ 0.1;
+#X obj 1051 544 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 1044 588 *~ 0.1;
+#X text 1078 521 volume bass;
+#X obj 872 455 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 793 530 *~ 0.1;
+#X text 890 484 volume reverb;
+#X obj 734 533 *~ 0.1;
+#X text 957 40 RAIN INPUT;
+#X floatatom 969 59 5 0 0 0 - - -;
+#X text 1 91 This is just a test note;
+#X obj 855 -3 receive bang;
+#X msg 842 19 0.5;
+#X msg 490 529 0.5;
+#X obj 489 507 receive bang;
+#X msg 869 436 0.5;
+#X obj 888 417 receive bang;
+#X msg 1046 519 0.5;
+#X obj 1038 497 receive bang;
+#X obj -2 149 makenote 80 500;
+#X msg 1 118 75;
+#X obj 127 352 cycle~;
+#X obj 189 154 main;
+#X floatatom 1197 316 5 0 0 0 - - -;
+#X obj 131 390 *~ 1;
+#X obj 112 599 *~;
+#X floatatom 194 472 5 0 0 0 - - -;
+#X floatatom 259 478 5 0 0 0 - - -;
+#X floatatom 271 531 5 0 0 0 - - -;
+#X obj 158 600 Scope~ 130 130 256 3 128 -0.01 1 0 0 0 0 102 255 51
+135 135 135 0;
+#X obj 145 515 tgl 20 0 empty empty empty 17 7 0 10 -249787 -1 -1 0
+81;
+#X text 70 516 Note On/Off;
+#X obj 145 556 eadsr~ 100 200 0.5 500;
+#X obj 910 25 receive rainmain;
+#X obj -1 445 receive metromain;
+#X obj 330 573 / 100;
+#X obj 208 420 receive rainmain;
+#X obj 206 447 * 500;
+#X obj 333 544 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 333 525 Sustain;
+#X obj 294 503 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 308 489 Release;
+#X obj 264 458 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 196 398 hsl 128 15 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 215 380 Attack;
+#X text 275 442 Decay;
+#X obj 1454 298 / 127;
+#X obj 1368 296 cycle~;
+#X obj 1372 334 *~ 1;
+#X obj 1353 543 *~;
+#X floatatom 1435 416 5 0 0 0 - - -;
+#X floatatom 1500 422 5 0 0 0 - - -;
+#X floatatom 1512 475 5 0 0 0 - - -;
+#X obj 1399 544 Scope~ 130 130 256 3 128 -0.01 1 0 0 0 0 102 255 51
+135 135 135 0;
+#X obj 1386 459 tgl 20 0 empty empty empty 17 7 0 10 -249787 -1 -1
+0 81;
+#X text 1311 460 Note On/Off;
+#X obj 1386 500 eadsr~ 100 200 0.5 500;
+#X obj 1315 494 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1240 389 receive metromain;
+#X obj 1297 445 delay;
+#X obj 1571 517 / 100;
+#X obj 1449 364 receive rainmain;
+#X obj 1447 391 * 500;
+#X obj 1574 488 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 1574 469 Sustain;
+#X obj 1535 447 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 1550 425 Release;
+#X obj 1505 402 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 1437 342 hsl 128 15 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 1456 324 Attack;
+#X text 1516 386 Decay;
+#X obj 1020 475 receive bassvolume;
+#X obj 464 482 receive tenorvolume;
+#X obj 74 583 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 28 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 507 delay;
+#X obj 75 473 receive tempodelay;
+#X obj 1316 417 receive tempodelay;
+#X text 1537 420;
+#X connect 1 0 4 0;
+#X connect 1 1 4 1;
+#X connect 2 0 70 0;
+#X connect 3 0 73 1;
+#X connect 4 0 5 0;
+#X connect 4 1 5 1;
+#X connect 4 2 5 2;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 1 3 0;
+#X connect 8 0 56 0;
+#X connect 8 1 54 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 12 0;
+#X connect 14 0 9 0;
+#X connect 15 0 8 0;
+#X connect 16 0 8 0;
+#X connect 17 0 15 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 14 0;
+#X connect 21 0 10 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 24 0 13 0;
+#X connect 24 0 11 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 27 0 4 0;
+#X connect 27 0 31 0;
+#X connect 28 0 32 0;
+#X connect 28 0 4 1;
+#X connect 34 0 36 0;
+#X connect 34 1 36 1;
+#X connect 35 0 96 0;
+#X connect 36 0 37 0;
+#X connect 36 1 37 1;
+#X connect 36 2 37 2;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 35 0;
+#X connect 39 1 72 0;
+#X connect 39 1 95 0;
+#X connect 40 0 36 0;
+#X connect 40 1 36 1;
+#X connect 41 0 40 0;
+#X connect 45 0 36 1;
+#X connect 45 0 44 0;
+#X connect 46 0 36 0;
+#X connect 46 0 43 0;
+#X connect 48 0 49 1;
+#X connect 49 0 0 0;
+#X connect 49 0 0 1;
+#X connect 49 0 8 1;
+#X connect 49 0 8 0;
+#X connect 50 0 51 1;
+#X connect 51 0 0 1;
+#X connect 51 0 0 0;
+#X connect 53 0 54 1;
+#X connect 53 0 56 1;
+#X connect 54 0 0 1;
+#X connect 56 0 0 0;
+#X connect 58 0 26 0;
+#X connect 60 0 61 0;
+#X connect 61 0 14 0;
+#X connect 61 0 21 0;
+#X connect 62 0 48 0;
+#X connect 63 0 62 0;
+#X connect 64 0 53 0;
+#X connect 65 0 64 0;
+#X connect 66 0 50 0;
+#X connect 67 0 66 0;
+#X connect 68 0 4 0;
+#X connect 68 1 4 1;
+#X connect 69 0 68 0;
+#X connect 70 0 73 0;
+#X connect 73 0 74 0;
+#X connect 74 0 49 0;
+#X connect 75 0 81 1;
+#X connect 76 0 81 2;
+#X connect 77 0 81 4;
+#X connect 79 0 81 0;
+#X connect 81 0 78 0;
+#X connect 81 0 74 1;
+#X connect 82 0 58 0;
+#X connect 83 0 123 0;
+#X connect 84 0 81 3;
+#X connect 85 0 86 0;
+#X connect 86 0 75 0;
+#X connect 87 0 84 0;
+#X connect 89 0 77 0;
+#X connect 91 0 76 0;
+#X connect 92 0 75 0;
+#X connect 95 0 97 1;
+#X connect 96 0 97 0;
+#X connect 97 0 98 0;
+#X connect 98 0 51 0;
+#X connect 99 0 105 1;
+#X connect 100 0 105 2;
+#X connect 101 0 105 4;
+#X connect 103 0 105 0;
+#X connect 105 0 102 0;
+#X connect 105 0 98 1;
+#X connect 106 0 103 0;
+#X connect 107 0 103 0;
+#X connect 107 0 108 0;
+#X connect 108 0 106 0;
+#X connect 109 0 105 3;
+#X connect 110 0 111 0;
+#X connect 111 0 99 0;
+#X connect 112 0 109 0;
+#X connect 114 0 101 0;
+#X connect 116 0 100 0;
+#X connect 117 0 99 0;
+#X connect 120 0 50 0;
+#X connect 121 0 48 0;
+#X connect 122 0 79 0;
+#X connect 123 0 79 0;
+#X connect 123 0 124 0;
+#X connect 124 0 122 0;
+#X connect 125 0 124 1;
+#X connect 126 0 108 1;
+#X restore 785 120 pd oscilator;
+#X text 779 74 INTRUMENTS;
+#X text 692 77 INPUTS;
+#X text 880 75 TABLES;
+#N canvas 907 44 450 300 lightinput 0;
+#X obj 38 31 receive light1;
+#X floatatom 37 62 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X restore 685 139 pd lightinput;
+#X obj 467 369 receive tempmain;
+#X obj 397 441 - 25;
+#X text 948 368 comment;
+#X obj 1103 667 receive light1;
+#X obj 1103 709 * 100;
+#X obj 911 442 send metromain;
+#X obj 1170 427 receive osr;
+#X obj 254 246 send voclocitycontrol;
+#X obj 938 545 receive voclocitycontrol;
+#X obj 72 53 send stop;
+#X obj 71 19 bng 30 250 50 0 empty empty empty 17 7 0 10 -258113 -262144
+-1;
+#X text 71 3 STOP Sequencer;
+#X text -42 2 START Sequencer;
+#X obj -44 17 bng 30 250 50 0 empty empty empty 17 7 0 10 -4034 -45076
+-1;
+#X obj -43 54 send start;
+#X obj -41 115 send tempo;
+#X obj -37 80 hsl 250 30 1500 150 0 0 empty empty empty -2 -8 0 10
+-257985 -1 -1 0 1;
+#X obj 246 403 gate 2;
+#X obj 255 44 hradio 50 1 0 3 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 256 101 send scalecontrol;
+#X obj 303 330 receive scalecontrol;
+#X obj 415 391 gate 2;
+#N canvas 113 27 1165 690 pentatonicsets 0;
+#X obj 80 152 receive bang;
+#X floatatom 6 106 5 0 0 0 - - -;
+#X floatatom 6 151 5 0 0 0 - - -;
+#X obj 114 369 gate 2;
+#X obj 170 369 gate 2;
+#X obj 215 373 gate 2;
+#X floatatom -252 150 5 0 0 0 - - -;
+#X floatatom -370 203 5 0 0 0 - - -;
+#X obj -416 385 gate 2;
+#X obj -316 385 gate 2;
+#X obj -261 386 gate 2;
+#X text 28 221 Temp decides to open gate no.;
+#X obj -17 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 21 237 Gate sends Bang to Sets;
+#X obj 270 369 gate 2;
+#X obj -364 383 gate 2;
+#X obj 322 367 gate 2;
+#X obj 378 367 gate 2;
+#X obj -24 244 gate 8;
+#X obj -178 390 gate 2;
+#X obj -122 390 gate 2;
+#X obj -77 394 gate 2;
+#X obj -22 390 gate 2;
+#X obj -188 192 send light;
+#X obj -228 193 > 0.6;
+#X obj -309 187 < 0.6;
+#X obj 6 128 - 25;
+#X obj 375 420 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 360 402 set CmajorP;
+#X obj 432 366 gate 2;
+#X obj 488 366 gate 2;
+#X obj -300 51 inlet;
+#X obj -169 37 inlet;
+#X obj 461 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 446 399 set DbmajorP;
+#X obj 555 430 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 537 407 set DmajorP;
+#X obj 197 419 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 423 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 182 401 set BbmajorP;
+#X msg 271 405 set BmajorP;
+#X obj 207 514 outlet;
+#X obj 110 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 95 400 set AmajorP;
+#X obj 718 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 638 422 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 623 404 set EbmajorP;
+#X msg 703 398 set EmajorP;
+#X obj -1 499 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg -16 481 set Elydian;
+#X obj -66 447 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -81 429 set Eblydian;
+#X obj -138 470 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -153 452 set Dlydian;
+#X obj -190 446 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -197 421 set Dblydian;
+#X obj -254 468 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -269 450 set Clydian;
+#X obj -304 437 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -319 419 set Blydian;
+#X obj -374 469 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -372 446 set Bblydian;
+#X obj -404 441 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -419 423 set Alydian;
+#X obj 499 146 receive bang;
+#X msg 407 168 0;
+#X obj 469 187 delay 100;
+#X connect 0 0 18 1;
+#X connect 1 0 26 0;
+#X connect 2 0 18 0;
+#X connect 3 0 43 0;
+#X connect 4 0 39 0;
+#X connect 5 0 40 0;
+#X connect 6 0 23 0;
+#X connect 6 0 24 0;
+#X connect 6 0 25 0;
+#X connect 8 0 63 0;
+#X connect 9 0 59 0;
+#X connect 10 0 57 0;
+#X connect 12 0 1 0;
+#X connect 14 0 28 0;
+#X connect 15 0 61 0;
+#X connect 16 0 34 0;
+#X connect 17 0 36 0;
+#X connect 18 0 3 1;
+#X connect 18 0 8 1;
+#X connect 18 1 4 1;
+#X connect 18 1 15 1;
+#X connect 18 2 5 1;
+#X connect 18 2 9 1;
+#X connect 18 3 14 1;
+#X connect 18 3 10 1;
+#X connect 18 4 16 1;
+#X connect 18 4 19 1;
+#X connect 18 5 17 1;
+#X connect 18 5 20 1;
+#X connect 18 6 21 1;
+#X connect 18 6 29 1;
+#X connect 18 7 22 1;
+#X connect 18 7 30 1;
+#X connect 19 0 55 0;
+#X connect 20 0 53 0;
+#X connect 21 0 51 0;
+#X connect 22 0 49 0;
+#X connect 24 0 3 0;
+#X connect 24 0 4 0;
+#X connect 24 0 5 0;
+#X connect 24 0 14 0;
+#X connect 24 0 16 0;
+#X connect 24 0 17 0;
+#X connect 25 0 8 0;
+#X connect 25 0 9 0;
+#X connect 25 0 10 0;
+#X connect 25 0 7 0;
+#X connect 25 0 15 0;
+#X connect 25 0 19 0;
+#X connect 25 0 20 0;
+#X connect 25 0 21 0;
+#X connect 25 0 22 0;
+#X connect 26 0 2 0;
+#X connect 28 0 27 0;
+#X connect 28 0 41 0;
+#X connect 29 0 46 0;
+#X connect 30 0 47 0;
+#X connect 31 0 6 0;
+#X connect 32 0 1 0;
+#X connect 34 0 33 0;
+#X connect 34 0 41 0;
+#X connect 36 0 35 0;
+#X connect 36 0 41 0;
+#X connect 39 0 37 0;
+#X connect 39 0 41 0;
+#X connect 40 0 38 0;
+#X connect 40 0 41 0;
+#X connect 43 0 42 0;
+#X connect 43 0 41 0;
+#X connect 46 0 45 0;
+#X connect 46 0 41 0;
+#X connect 47 0 44 0;
+#X connect 47 0 41 0;
+#X connect 49 0 48 0;
+#X connect 49 0 41 0;
+#X connect 51 0 50 0;
+#X connect 53 0 52 0;
+#X connect 53 0 41 0;
+#X connect 55 0 54 0;
+#X connect 55 0 41 0;
+#X connect 57 0 56 0;
+#X connect 57 0 41 0;
+#X connect 59 0 58 0;
+#X connect 59 0 41 0;
+#X connect 61 0 60 0;
+#X connect 61 0 41 0;
+#X connect 63 0 62 0;
+#X connect 63 0 41 0;
+#X connect 64 0 66 0;
+#X connect 65 0 2 0;
+#X connect 66 0 65 0;
+#X restore 256 473 pd pentatonicsets;
+#X text 306 25 Maj/min;
+#X text 355 26 Pent/Lyd;
+#X text 274 25 OFF;
+#X text 291 6 SCALE TYPE;
+#X text 63 88 TEMPO;
+#X msg 202 448 0.7;
+#X msg 45 450 0.7;
+#X obj -39 179 send guitarvolume;
+#X obj -39 147 hsl 250 30 0 127 0 0 empty empty empty -2 -8 0 10 -260097
+-1 -1 0 1;
+#X text 33 153 Guitar Volume;
+#X obj -38 238 send tenorvolume;
+#X obj -33 296 send bassvolume;
+#X obj -38 206 hsl 250 30 0 1 0 0 empty empty empty -2 -8 0 10 -232576
+-1 -1 0 1;
+#X obj -31 261 hsl 250 30 0 1 0 0 empty empty empty -2 -8 0 10 -162280
+-1 -1 0 1;
+#X text 36 268 Bass Volume;
+#X text 31 210 Tenor Volume;
+#X obj 454 199 hradio 50 1 0 3 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 455 252 send guitarcontrol;
+#X text 458 23 OFF Sequence Random;
+#X text 471 163 GUITAR CONTROL;
+#X text 476 182 OFF DELAY REVERB;
+#X obj 1023 408 send tempodelay;
+#X obj 601 400 receive bang;
+#X msg 509 422 0;
+#X obj 571 441 delay 100;
+#X connect 3 0 4 0;
+#X connect 3 0 18 0;
+#X connect 4 0 13 0;
+#X connect 4 0 14 0;
+#X connect 4 0 94 1;
+#X connect 4 0 105 1;
+#X connect 4 0 129 0;
+#X connect 5 0 4 1;
+#X connect 7 0 4 0;
+#X connect 8 0 112 0;
+#X connect 9 0 35 0;
+#X connect 9 0 8 0;
+#X connect 10 0 106 0;
+#X connect 10 0 23 1;
+#X connect 11 0 15 0;
+#X connect 11 0 23 2;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 19 0 12 0;
+#X connect 20 0 25 0;
+#X connect 21 0 78 1;
+#X connect 22 0 10 0;
+#X connect 23 0 27 0;
+#X connect 23 0 16 0;
+#X connect 23 1 111 0;
+#X connect 29 0 7 0;
+#X connect 30 0 3 0;
+#X connect 31 0 34 0;
+#X connect 31 0 8 0;
+#X connect 32 0 125 0;
+#X connect 33 0 78 0;
+#X connect 37 0 36 0;
+#X connect 37 0 8 0;
+#X connect 39 0 38 0;
+#X connect 39 0 8 0;
+#X connect 40 0 9 0;
+#X connect 41 0 60 0;
+#X connect 44 0 39 0;
+#X connect 45 0 91 0;
+#X connect 45 0 98 0;
+#X connect 45 0 99 0;
+#X connect 48 0 31 0;
+#X connect 49 0 37 0;
+#X connect 50 0 57 0;
+#X connect 52 0 32 0;
+#X connect 56 0 43 0;
+#X connect 56 0 8 0;
+#X connect 57 0 42 0;
+#X connect 57 0 8 0;
+#X connect 60 0 59 0;
+#X connect 60 0 8 0;
+#X connect 61 0 58 0;
+#X connect 61 0 8 0;
+#X connect 62 0 56 0;
+#X connect 63 0 61 0;
+#X connect 64 0 5 0;
+#X connect 64 0 168 0;
+#X connect 65 0 64 0;
+#X connect 70 0 66 0;
+#X connect 70 0 8 0;
+#X connect 71 0 69 0;
+#X connect 71 0 8 0;
+#X connect 72 0 67 0;
+#X connect 72 0 8 0;
+#X connect 73 0 68 0;
+#X connect 73 0 8 0;
+#X connect 74 0 70 0;
+#X connect 75 0 71 0;
+#X connect 76 0 72 0;
+#X connect 77 0 73 0;
+#X connect 78 0 40 1;
+#X connect 78 0 48 1;
+#X connect 78 1 41 1;
+#X connect 78 1 63 1;
+#X connect 78 2 44 1;
+#X connect 78 2 49 1;
+#X connect 78 3 62 1;
+#X connect 78 3 50 1;
+#X connect 78 4 74 1;
+#X connect 78 4 79 1;
+#X connect 78 5 75 1;
+#X connect 78 5 80 1;
+#X connect 78 6 76 1;
+#X connect 78 6 81 1;
+#X connect 78 7 77 1;
+#X connect 78 7 82 1;
+#X connect 79 0 87 0;
+#X connect 80 0 88 0;
+#X connect 81 0 89 0;
+#X connect 82 0 90 0;
+#X connect 87 0 83 0;
+#X connect 87 0 8 0;
+#X connect 88 0 86 0;
+#X connect 88 0 8 0;
+#X connect 89 0 84 0;
+#X connect 89 0 8 0;
+#X connect 90 0 85 0;
+#X connect 90 0 8 0;
+#X connect 92 0 93 0;
+#X connect 92 0 100 0;
+#X connect 93 0 92 1;
+#X connect 94 0 92 0;
+#X connect 94 1 101 0;
+#X connect 95 0 102 0;
+#X connect 96 0 97 0;
+#X connect 98 0 40 0;
+#X connect 98 0 41 0;
+#X connect 98 0 44 0;
+#X connect 98 0 62 0;
+#X connect 98 0 74 0;
+#X connect 98 0 75 0;
+#X connect 98 0 76 0;
+#X connect 98 0 77 0;
+#X connect 99 0 48 0;
+#X connect 99 0 49 0;
+#X connect 99 0 50 0;
+#X connect 99 0 46 0;
+#X connect 99 0 63 0;
+#X connect 99 0 79 0;
+#X connect 99 0 80 0;
+#X connect 99 0 81 0;
+#X connect 99 0 82 0;
+#X connect 100 0 8 0;
+#X connect 101 0 8 0;
+#X connect 103 0 128 0;
+#X connect 104 0 131 0;
+#X connect 105 0 103 0;
+#X connect 105 1 22 0;
+#X connect 111 0 26 0;
+#X connect 111 1 110 0;
+#X connect 111 1 17 0;
+#X connect 112 0 23 0;
+#X connect 112 0 6 0;
+#X connect 113 0 141 1;
+#X connect 117 0 116 0;
+#X connect 124 0 145 1;
+#X connect 125 0 33 0;
+#X connect 127 0 103 0;
+#X connect 128 0 23 1;
+#X connect 130 0 94 0;
+#X connect 132 0 105 0;
+#X connect 134 0 133 0;
+#X connect 137 0 138 0;
+#X connect 140 0 139 0;
+#X connect 141 0 45 0;
+#X connect 141 1 146 0;
+#X connect 142 0 143 0;
+#X connect 144 0 141 0;
+#X connect 144 0 145 0;
+#X connect 145 0 32 0;
+#X connect 145 1 146 1;
+#X connect 146 0 8 0;
+#X connect 152 0 146 0;
+#X connect 153 0 45 0;
+#X connect 155 0 154 0;
+#X connect 159 0 157 0;
+#X connect 160 0 158 0;
+#X connect 163 0 164 0;
+#X connect 169 0 171 0;
+#X connect 170 0 33 0;
+#X connect 171 0 170 0;
